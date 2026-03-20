@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int countDigits(int num) {
+        int original = num;
+        int count = 0;
+
+        for (int temp = num; temp > 0; temp /= 10) {
+            int digit = temp % 10;
+
+            if (original % digit == 0) {
+                count++;
+            }
+        }
+
+        return count;
+    }
+};
