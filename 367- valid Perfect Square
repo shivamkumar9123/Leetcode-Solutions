@@ -1,0 +1,13 @@
+class solution{
+public:
+bool isPerfectSquare(int num){
+double a=sqrt(num);
+int b=a;
+if(a==b){
+return true;
+}
+else{
+return false
+}
+}
+};
