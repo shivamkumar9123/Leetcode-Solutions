@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int subarraySum(vector<int>& nums, int k) {
+        unordered_map<int,int>prefixFrequency;
+        prefixFrequency[0]=1;
+        int currentPrefix=0;
+        int totalSubarray=0;
+        for(int number:nums){
+            currentPrefix += number;
+            int requiredPrefix= currentPrefix - k;
+            if(prefixFrequency.find(requiredPrefix)!=prefixFrequency.end()){
+                totalSubarray +=prefixFrequency[requiredPrefix];
+
+            }
+            prefixFrequency[currentPrefix]++;
+        }
+        return totalSubarray;
+    }
+};
