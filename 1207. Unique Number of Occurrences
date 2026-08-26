@@ -1,0 +1,44 @@
+class Solution {
+public:
+    bool uniqueOccurrences(vector<int>& arr) {
+        // set<int>processed;
+        // vector<int>frequencies;
+        // for(int i=0;i<arr.size();i++){
+        //     if(processed.count(arr[i])){
+        //         continue;
+        //     }
+        //     processed.insert(arr[i]);
+        //     int count=0;
+        //     for(int j=0;j<arr.size();j++){
+        //         if(arr[j]==arr[i]){
+        //             count++;
+        //         }
+        //     }
+        //         frequencies.push_back(count);
+        //     }
+        //     set<int>uniquefrequencies;
+        //     for(int frequency:frequencies)
+        //     {
+        //         if(uniquefrequencies.count(frequency)){
+        //             return false;
+        //         }
+        //         uniquefrequencies.insert(frequency);
+        //     }
+        //     return true;
+        unordered_map<int , int>freq;
+        for(int number:arr){
+            freq[number]++;
+        }
+        unordered_set<int>seen;
+        for(auto& pair:freq){
+            int curfreq=pair.second;
+            if(seen.count(curfreq)){
+                return false;
+            }
+            seen.insert(curfreq);
+
+        }
+        return true;
+    }
+};
+
