@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int characterReplacement(string s, int k) {
+        int left = 0;
+        int max_frequency = 0;
+        int max_len = 0;
+        int hash[26] = {0};
+
+        for (int right = 0; right < s.size(); right++) {
+            hash[s[right] - 'A']++;
+            max_frequency = max(max_frequency, hash[s[right] - 'A']);
+
+            if ((right - left + 1) - max_frequency > k) {
+                hash[s[left] - 'A']--;
+                left++;
+            }
+
+            max_len = max(max_len, right - left + 1);
+        }
+
+        return max_len;
+    }
+};
