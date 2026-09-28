@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int numOfSubarrays(vector<int>& arr) {
+        long long mod=1e9+7;
+        int n=arr.size();
+        int sum=0;
+        int ce=1;
+        int oc=0;
+        long long ans=0;
+        for( auto const &v:arr){
+            sum+=v;
+            if(sum%2==0){
+                ce++;
+                ans+=(oc%mod)%mod;
+            }
+            else{
+                oc++;
+                ans+=(ce%mod)%mod;
+            }
+        }
+        return ans%mod ;
+    }
+};
