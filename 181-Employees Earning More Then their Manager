@@ -1,0 +1,4 @@
+SELECT G1.name AS Employee 
+FROM Employee AS G1, Employee AS G2 
+WHERE G1.managerId = G2.id 
+  AND G1.salary > G2.salary;
